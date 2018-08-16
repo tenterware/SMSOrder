@@ -1,0 +1,50 @@
+[
+    {
+        "ItemID": "180815_011908",
+        "DateTime": "180815_011908",
+        "ItemType": "DISH",
+        "NameShort": "SS",
+        "NameFull": "SalmonSteak",
+        "PriceVisit": "100",
+        "PriceOnline": "103",
+        "PriceUber": "102",
+        "ItemStatus": "SOLDOUT",
+        "ImagePath": "image/item/180815_011908/180815_011908.jpg"
+    },
+    {
+        "ItemID": "180815_011908",
+        "DateTime": "180815_021003",
+        "ItemType": "DISH",
+        "NameShort": "SS",
+        "NameFull": "SalmonSteak",
+        "PriceVisit": "100",
+        "PriceOnline": "103",
+        "PriceUber": "102",
+        "ItemStatus": "SELLING",
+        "ImagePath": "image/item/180815_011908/180815_011908.jpg"
+    },
+    {
+        "ItemID": "180815_011908",
+        "DateTime": "180815_021117",
+        "ItemType": "DISH",
+        "NameShort": "SS",
+        "NameFull": "SalmonSteak",
+        "PriceVisit": "100",
+        "PriceOnline": "103",
+        "PriceUber": "102",
+        "ItemStatus": "SOLDOUT",
+        "ImagePath": "image/item/180815_011908/180815_011908.jpg"
+    },
+    {
+        "ItemID": "180815_011908",
+        "DateTime": "180815_021123",
+        "ItemType": "DISH",
+        "NameShort": "SS",
+        "NameFull": "SalmonSteak",
+        "PriceVisit": "100",
+        "PriceOnline": "103",
+        "PriceUber": "102",
+        "ItemStatus": "NOTSEASON",
+        "ImagePath": "image/item/180815_011908/180815_011908.jpg"
+    }
+]

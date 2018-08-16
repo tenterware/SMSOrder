@@ -1,0 +1,26 @@
+[
+    {
+        "ItemID": "180815_015156",
+        "DateTime": "180815_015156",
+        "ItemType": "MEAL",
+        "NameShort": "BSPA",
+        "NameFull": "Basepagetti",
+        "PriceVisit": "10",
+        "PriceOnline": "12",
+        "PriceUber": "10",
+        "ItemStatus": "SELLING",
+        "ImagePath": "image/item/180815_015156/180815_015156.jpg"
+    },
+    {
+        "ItemID": "180815_015156",
+        "DateTime": "180815_021148",
+        "ItemType": "MEAL",
+        "NameShort": "BSPA",
+        "NameFull": "Basepagetti",
+        "PriceVisit": "10",
+        "PriceOnline": "12",
+        "PriceUber": "10",
+        "ItemStatus": "NOTSEASON",
+        "ImagePath": "image/item/180815_015156/180815_015156.jpg"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "ItemID": "180815_015050",
+        "DateTime": "180815_015050",
+        "ItemType": "MEAL",
+        "NameShort": "MB",
+        "NameFull": "MouthBurger",
+        "PriceVisit": "100",
+        "PriceOnline": "102",
+        "PriceUber": "101",
+        "ItemStatus": "DELETED",
+        "ImagePath": "image/item/180815_015050/180815_015050.jpg"
+    },
+    {
+        "ItemID": "180815_015050",
+        "DateTime": "180815_021142",
+        "ItemType": "MEAL",
+        "NameShort": "MB",
+        "NameFull": "MouthBurger",
+        "PriceVisit": "100",
+        "PriceOnline": "102",
+        "PriceUber": "101",
+        "ItemStatus": "SELLING",
+        "ImagePath": "image/item/180815_015050/180815_015050.jpg"
+    }
+]

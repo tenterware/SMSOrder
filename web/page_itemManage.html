@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>찬집 - 아이템 관리</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+	<style>
+	nav {
+	width: 100%;
+	background: #f0f0f0;
+	border: 1px solid #ccc;
+	border-right: none;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	}
+	
+	nav ul {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	}
+	
+	nav ul li {
+	list-style: none;
+	float: left;
+	text-align: center;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #ccc;
+	width: 16.6667%; /* fallback for non-calc() browsers */
+	width: calc(100% / 4);
+	box-sizing: border-box;
+	}
+	
+	nav ul li:first-child {
+	border-left: none;
+	}
+	
+	nav ul li a {
+	display: block;
+	text-decoration: none;
+	color: #616161;
+	padding: 20px 0;
+	}
+	
+	.centered-caption {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	}
+
+	.bottom-centered-caption {
+	position: absolute;
+	bottom: 8px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	}
+
+	.STATUS-SELLING {}
+	.STATUS-SOLDOUT {-webkit-filter: grayscale(100%);filter: grayscale(100%);}
+	.STATUS-NOTSEASON {-webkit-filter: sepia(100%);filter: sepia(100%);}
+	.STATUS-DELETED {-webkit-filter: opacity(50%);filter: opacity(50%);}
+
+	</style>
+    	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/page_itemManage.js"></script>
+	<script src="js/socket.io.js"></script>
+</head>
+
+<body>
+<nav>
+  <ul>
+    <li><a href="home.html" class='class="btn btn-primary'>전체</a></li>
+    <li><a href="home.html" class='class="btn btn-secondary'>아이템01</a></li>
+    <li><a href="home.html" class='class="btn btn-success'>도시락</a></li>
+    <li><a href="home.html" class='class="btn btn-danger'>찬집</a></li>
+  </ul>
+</nav>
+    <!-- Page Content -->
+    <div class="container" style='padding-top: 60px;'>
+      <div id='divListItem' class="row text-center text-lg-left"></div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+	
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+		<form ref='uploadForm' id='uploadForm' action='' method='post' encType="multipart/form-data">
+			<input type="name" id="itemID" name='ItemID' value='' style='display:none;'>
+			<div class="form-group form-group-lg">
+				<label for="Name">Name:</label>
+				<div class="form-row">
+					<div class="col"><input type="name" class="form-control" id="nameFull" placeholder="FULL NAME" name="NameFull"></div>
+					<div class="col"><input type="name" class="form-control" id="nameShort" placeholder="SHORT NAME" name="NameShort"></div>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for="Price">Price:</label>
+				<div class="form-row">
+				<div class="col"><input type="tel" class="form-control" id="priceVisit" placeholder="VISIT PRICE" name="PriceVisit"></div>
+				<div class="col"><input type="tel" class="form-control" id="priceUber" placeholder="UBER PRICE" name="PriceUber"></div>
+				<div class="col"><input type="tel" class="form-control" id="priceOnline" placeholder="ONLINE PRICE" name="PriceOnline"></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="itemType">ItemType:</label>
+				<div class="form-row">
+					<div class="col">
+						<label class="radio-inline"><input type="radio" id='itemTypeMeal' name="ItemType" value='MEAL' checked>MEAL</label>
+						<label class="radio-inline"><input type="radio" id='itemTypeDish' name="ItemType" value='DISH' >DISH</label>
+					</div>
+					<div class="col">
+						<select id="sideType" name='SideType' class="form-control">
+							<option value='Default' selected>Default</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="itemStatus">ItemStatus:</label>
+				<select id='itemStatus' name='ItemStatus' class="form-control">
+					<option value='SELLING'>Selling</option>
+					<option value='SOLDOUT'>Soldout</option>
+					<option value='NOTSEASON'>NotSeason</option>
+					<option value='DELETED'>Deleted</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="imagePath">Image Path:</label>
+				<input type="file" class="form-control" id="imagePath"  name="ImagePath" />
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>    
+		<!--
+		<form action="/action_page.php">
+			<div class="form-group">
+			<label for="name">name:</label>
+			<input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+			</div>
+			<div class="form-group">
+			<label for="price">price:</label>
+			<input type="tel" class="form-control" id="price" placeholder="Enter price" name="price">
+			</div>
+			<div class="checkbox">
+			<label><input type="checkbox" name="remember"> Remember me</label>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+		-->
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+    <!-- Bootstrap core JavaScript -->
+
+  </body>
+
+</html>

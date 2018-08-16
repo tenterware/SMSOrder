@@ -1,0 +1,38 @@
+[
+    {
+        "ItemID": "180815_013505",
+        "DateTime": "180815_013505",
+        "ItemType": "MEAL",
+        "NameShort": "SLD",
+        "NameFull": "Salad",
+        "PriceVisit": "100",
+        "PriceOnline": "101",
+        "PriceUber": "102",
+        "ItemStatus": "NOTSEASON",
+        "ImagePath": "image/item/180815_013505/180815_013505.jpg"
+    },
+    {
+        "ItemID": "180815_013505",
+        "DateTime": "180815_021128",
+        "ItemType": "MEAL",
+        "NameShort": "SLD",
+        "NameFull": "Salad",
+        "PriceVisit": "100",
+        "PriceOnline": "101",
+        "PriceUber": "102",
+        "ItemStatus": "SELLING",
+        "ImagePath": "image/item/180815_013505/180815_013505.jpg"
+    },
+    {
+        "ItemID": "180815_013505",
+        "DateTime": "180815_021157",
+        "ItemType": "MEAL",
+        "NameShort": "SLD",
+        "NameFull": "Salad",
+        "PriceVisit": "100",
+        "PriceOnline": "101",
+        "PriceUber": "102",
+        "ItemStatus": "SOLDOUT",
+        "ImagePath": "image/item/180815_013505/180815_013505.jpg"
+    }
+]

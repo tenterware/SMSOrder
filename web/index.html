@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+	<style>
+	nav {
+	width: 100%;
+	background: #f0f0f0;
+	border: 1px solid #ccc;
+	border-right: none;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	}
+	
+	nav ul {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	}
+	
+	nav ul li {
+	list-style: none;
+	float: left;
+	text-align: center;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #ccc;
+	width: 16.6667%; /* fallback for non-calc() browsers */
+	width: calc(100% / 4);
+	box-sizing: border-box;
+	}
+	
+	nav ul li:first-child {
+	border-left: none;
+	}
+	
+	nav ul li a {
+	display: block;
+	text-decoration: none;
+	color: #616161;
+	padding: 20px 0;
+	}
+	
+	.centered-caption {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	}
+
+	.bottom-centered-caption {
+	position: absolute;
+	bottom: 8px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	}
+
+	.STATUS-SELLING {}
+	.STATUS-SOLDOUT {-webkit-filter: grayscale(100%);filter: grayscale(100%);}
+	.STATUS-NOTSEASON {-webkit-filter: sepia(100%);filter: sepia(100%);}
+	.STATUS-DELETED {-webkit-filter: opacity(50%);filter: opacity(50%);}
+
+	</style>
+    	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/page_itemManage.js"></script>
+	<script src="js/socket.io.js"></script>
+</head>
+
+<body>
+    <!-- Page Content -->
+    <div class="container" style='padding-top: 60px;'>
+	<div id='divListItem' class="row text-center text-lg-left">
+		<div class='col-lg-3 col-md-4 col-xs-6'>
+			<a class='d-block mb-4 h-100 addItem' style='cursor:pointer;' data-toggle='modal' data-target='#exampleModalCenter'>";
+			<img class='img-fluid img-thumbnail' src='/image/page_itemManage/addButton.png' alt=''>";
+			<div class='carousel-caption'><h3>ADD ITEM</h3></div>";
+			</a>
+		</div>
+	</div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+	
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+		<div class="form-group form-group-sm">
+			<label for="PhoneNumber">PhoneNumber:</label>
+			<div class="form-row">
+			<div class="col"><input type="tel" class="form-control" id="phoneNumber" placeholder="핸드폰넘버" name="PhoneNumber"></div>
+	        	<div class="col">
+				<button type="button" class="btn btn-secondary">발송</button>
+	        		<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+			</div>
+			</div>
+		</div>
+		<!--
+		<form action="/action_page.php">
+			<div class="form-group">
+			<label for="name">name:</label>
+			<input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+			</div>
+			<div class="form-group">
+			<label for="price">price:</label>
+			<input type="tel" class="form-control" id="price" placeholder="Enter price" name="price">
+			</div>
+			<div class="checkbox">
+			<label><input type="checkbox" name="remember"> Remember me</label>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+		-->
+	      </div>
+	      <div class="modal-footer text-left">
+			<p class="text-left"> 전화번호를 적으시면 메세지가 전송됩니다 </p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    <!-- Bootstrap core JavaScript -->
+
+  </body>
+
+</html>
