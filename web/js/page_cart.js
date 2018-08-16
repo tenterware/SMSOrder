@@ -1,17 +1,10 @@
 var gSocketIO = null;
 var gArrItem = null;
 
-function drawItemAll( _arrItems ){
+function drawCartItem( _arrItems ){
 	//if( gArrItem == null ){return;}
 	var strHTML = '';
 	gArrItem = _arrItems;
-	strHTML += "<div class='col-lg-3 col-md-4 col-xs-6'>";
-	strHTML += "<a class='d-block mb-4 h-100 addItem' style='cursor:pointer;' data-toggle='modal' data-target='#exampleModalCenter'>";
-	strHTML += "<img class='img-fluid img-thumbnail' src='/image/page_itemManage/addButton.png' alt=''>";
-	//strHTML += "<div class='carousel-caption'><h3>ADD ITEM</h3></div>";
-	strHTML += "</a>";
-	strHTML += "</div>";
-
 	for( var i=0; i < gArrItem.length ; i++ ){
 		strHTML += "<div class='col-lg-3 col-md-4 col-xs-6'>";
 		strHTML += "<a ItemID = '" + gArrItem[i].ItemID +"' style='cursor:pointer;' class='d-block mb-4 h-100 editItem' data-toggle='modal' data-target='#exampleModalCenter'>";
@@ -53,13 +46,19 @@ $( function() {
         var srvIPort = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
         gSocketIO = io( srvIPort );
 	gSocketIO.on('connect', function(socket) {
-		gSocketIO.emit('ITEM_LIST',{});
-        });
+		gSocketIO.emit('ITEM_CART_LIST',{});
+	});
 
-        gSocketIO.on('ITEM_LIST', function(data){
-		drawItemAll(data.items);
+        gSocketIO.on('ITEM_CART_LIST', function(data){
+		drawCartItem(data.items);
 		//gArrItem = data.items;
         });
-	//$( "#dlgGraph" ).css( "display", "none" );
+	
+	$( "#tabCart" ).click(function(){
+		$("#navTabMenu" ).hide();
+	});
+	$( "#tabMenu" ).click(function(){
+		$("#navTabMenu" ).show();
+	});
 });
 

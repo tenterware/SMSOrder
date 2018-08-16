@@ -22,6 +22,9 @@ exports.editItem = function( _item){
 exports.readAllLast = function(){
 	return readAllLast();
 }
+exports.readCartItem = function(){
+	return readCartItem();
+}
 
 function addItem(_item, _ext){
 	var date_time = dateformat(new Date(), "yymmdd_HHMMss");
@@ -97,6 +100,25 @@ function readAllLast(){
 		var _items = gDicItems[key];
 		/* Put only last item (status) */
 		_rtArray.push( _items[ _items.length - 1] );
+	}
+	return _rtArray;
+}
+
+function readCartItem(){
+	gDicItems = {};
+	fs.readdirSync(PATH_FULL).forEach(file => {
+		if (fs.statSync(PATH_FULL + file).isDirectory() == false ) {
+			gDicItems[ file ] = JSON.parse(fs.readFileSync(PATH_FULL + file , 'utf8'));
+		}
+	});
+	var _rtArray = [];
+	for (let key of Object.keys(gDicItems)) {
+		var _items = gDicItems[key];
+		/* Put only last item (status) */
+		var _lastItem = _items[ _items.length - 1];
+		if( _lastItem.ItemStatus != "DELETED"){
+			_rtArray.push( _lastItem );
+		} 
 	}
 	return _rtArray;
 }

@@ -22,5 +22,17 @@
         "PriceUber": "130",
         "ItemStatus": "DELETED",
         "ImagePath": "image/item/180815_014956/180815_014956.jpg"
+    },
+    {
+        "ItemID": "180815_014956",
+        "DateTime": "180816_194806",
+        "ItemType": "MEAL",
+        "NameShort": "PenZa",
+        "NameFull": "PenPizza",
+        "PriceVisit": "120",
+        "PriceOnline": "140",
+        "PriceUber": "130",
+        "ItemStatus": "SELLING",
+        "ImagePath": "image/item/180815_014956/180815_014956.jpg"
     }
 ]

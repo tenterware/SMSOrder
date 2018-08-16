@@ -97,8 +97,15 @@ try{
 
 const io = require('socket.io')(server);
 io.on('connection', function(socket) {
-	var _arr = itemManager.readAllLast();
-	socket.emit('ITEM_LIST', { 'items':_arr } );
+	socket.on('ITEM_LIST', function(msg) {
+		var _arr = itemManager.readAllLast();
+		socket.emit('ITEM_LIST', { 'items':_arr } );
+	});
+
+	socket.on('ITEM_CART_LIST', function(msg) {
+		var _arr = itemManager.readCartItem();
+		socket.emit('ITEM_CART_LIST', { 'items':_arr } );
+	});
 
 	socket.on('REQUEST_ORDER_URL', function(msg) {
 		var _orderID = orderManager.createOrder(msg.PhoneNumber); 
